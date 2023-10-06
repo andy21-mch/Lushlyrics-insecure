@@ -3,7 +3,7 @@
 The first thing to do is to clone the repository:
 
 ```sh
-$ git clone https://github.com/andy-mch/Lushlyrics-insecure.git
+$ git clone https://github.com/andy21-mch/Lushlyrics-insecure.git
 $ cd Lushlyrics-insecure/lushlyrics-webapp-django
 ```
 
