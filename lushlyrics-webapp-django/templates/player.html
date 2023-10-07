@@ -105,7 +105,7 @@
         </div>
 
 
-        <a class="profile-container" href="/logout">
+        {% if request.user.is_authenticated %}
             <button class="profile">
                 <div class="profile-pic">
                     <svg width="16" height="16" fill="white" viewBox="0 0 18 20" xmlns="http://www.w3.org/2000/svg"
@@ -115,12 +115,32 @@
                         </path>
                     </svg>
                 </div>
-                <span class='username hide-onhover'>{{ request.user }}</span>
+                <span class='username hide-onhover'>{{request.user}}</span>
                 <span class='logout username'>Logout</span>
             </button>
 
+           
 
-        </a>
+            {% else %}
+
+             <a href="{% url 'login' %}" class="profile">
+                <div class="profile-pic">
+                    <svg width="64px" height="64px" viewBox="-7.92 -7.92 39.84 39.84" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#b65d5d"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" stroke="#CCCCCC" stroke-width="4.8"> <path d="M20 12C20 7.58172 16.4183 4 12 4M12 20C14.5264 20 16.7792 18.8289 18.2454 17" stroke="#e8e9ed" stroke-width="2.4" stroke-linecap="round"></path> <path d="M4 12H14M14 12L11 9M14 12L11 15" stroke="#e8e9ed" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path> </g><g id="SVGRepo_iconCarrier"> <path d="M20 12C20 7.58172 16.4183 4 12 4M12 20C14.5264 20 16.7792 18.8289 18.2454 17" stroke="#e8e9ed" stroke-width="2.4" stroke-linecap="round"></path> <path d="M4 12H14M14 12L11 9M14 12L11 15" stroke="#e8e9ed" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+                </div>
+                <span class='username hide-onhover'>Login</span>
+                <span class='logout username'>Login</span>
+            </a>
+            
+            <a href="{% url 'register' %}" class="profile">
+                <div class="profile-pic">
+                    <svg width="64px" height="64px" viewBox="-11.04 -11.04 46.08 46.08" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g transform="translate(0 -1028.4)"> <path d="m22 12c0 5.523-4.477 10-10 10-5.5228 0-10-4.477-10-10 0-5.5228 4.4772-10 10-10 5.523 0 10 4.4772 10 10z" transform="translate(0 1029.4)" fill="#949996"></path> <path d="m22 12c0 5.523-4.477 10-10 10-5.5228 0-10-4.477-10-10 0-5.5228 4.4772-10 10-10 5.523 0 10 4.4772 10 10z" transform="translate(0 1028.4)" fill="#df95b9"></path> <path d="m6.0001 1042.4h4.9999v5h2v-5h5v-2h-5v-5h-2v5h-4.9999v2z" fill="#949996"></path> <path d="m6 1041.4h5v5h2v-5h5v-2h-5v-5h-2v5h-5v2z" fill="#ecf0f1"></path> </g> </g></svg>
+                </div>
+                <span class='username hide-onhover'>Register</span>
+                <span class='logout username'>Signup</span>
+            </a>
+
+            {% endif %}
+
     </div>
 
 

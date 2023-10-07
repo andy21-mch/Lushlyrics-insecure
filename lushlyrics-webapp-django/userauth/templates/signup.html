@@ -31,6 +31,13 @@
         <div class="signup_header">
             <a href="" target="_blank">
             </a>
+            {% if messages %}
+            <div class="">
+                {% for message in messages %}
+                <div {% if message.tags %} class="alert-dismissible {{ message.tags }}"{% endif %}>{{ message }}</div>
+                {% endfor %}
+            </div>
+            {% endif %}
         </div>
 
     <div class="signup_body">
@@ -44,7 +51,7 @@
             {% endif %}
             </label>
 
-            <input type="text" class="form_input" name="username" pattern="[A-Za-z]+" placeholder="Enter your name." required>
+            <input type="text" class="form_input" name="name" pattern="[A-Za-z]+" placeholder="Enter your name." required>
 
 
             <label for="sign-up-email" class="label">
