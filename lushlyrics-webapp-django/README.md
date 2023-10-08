@@ -1,6 +1,23 @@
+
+# Authentication For Lushlyrics
+This task is a part of my coursera learning journey where i had to implement authentication for a music website, 
+
+## Features
+- Login
+  User inputs username and password and logs in to access music dir
+- SignUp
+  User signs up with username, password, email to get access
+- Logout
+  User clears session by login out, after logout, user can not access website
+- Email Verification
+  This is part of the registration process where the user verifies their email
+- View Protection
+  This is an advanced feature that limits access to routes by protecting them 
 ## Setup
 
-The first thing to do is to clone the repository:
+To get this project setup on your system for testing, please follow the following steps
+
+- You can decide to fork the repository or
 
 ```sh
 $ git clone https://github.com/andy21-mch/Lushlyrics-insecure.git
