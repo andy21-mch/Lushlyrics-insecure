@@ -7,12 +7,15 @@ from django.contrib.auth import authenticate,login,logout
 from youtube_search import YoutubeSearch
 import json
 # import cardupdate
+from django.contrib.auth.decorators import login_required
 
 
 
 f = open('card.json', 'r')
 CONTAINER = json.load(f)
 
+
+@login_required
 def default(request):
     global CONTAINER
 
@@ -27,6 +30,7 @@ def default(request):
 
 
 
+@login_required
 def playlist(request):
     cur_user = playlist_user.objects.get(username = request.user)
     try:
@@ -44,6 +48,7 @@ def playlist(request):
     return render(request, 'playlist.html', {'song':song,'user_playlist':user_playlist})
 
 
+@login_required
 def search(request):
   if request.method == 'POST':
 
@@ -62,6 +67,7 @@ def search(request):
 
 
 
+@login_required
 def add_playlist(request):
     cur_user = playlist_user.objects.get(username = request.user)
 

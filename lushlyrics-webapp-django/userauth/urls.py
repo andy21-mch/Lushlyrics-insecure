@@ -4,7 +4,8 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    path("", views.default, name='default'),
-    path("login", views.login, name='login'),
-    path("register", views.register, name='register') 
+    path("logout", views.SignOut, name='logout'),
+    path("login", views.SignIn, name='login'),
+    path("register", views.register, name='register'),
+    path('activate/<uidb64>/<token>', views.activate, name='activate')
 ]
