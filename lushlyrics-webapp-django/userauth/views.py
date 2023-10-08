@@ -4,16 +4,22 @@ from django.conf import settings
 from django.contrib.sites.shortcuts import get_current_site
 from django.shortcuts import redirect, render
 from django.contrib.auth.models import User
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.template.loader import render_to_string
 from django.utils.encoding import force_bytes, force_text
 from . tokens import generate_token
 from django.utils.http import urlsafe_base64_decode, urlsafe_base64_encode
-
+from django.contrib.auth.decorators import login_required
 
 def default(request):
     return render(request, 'player.html')
+
+@login_required
+def SignOut(request):
+    logout(request)
+    messages.success(request, 'You have successfully logged out')
+    return redirect('login')
 
 
 def SignIn(request):
