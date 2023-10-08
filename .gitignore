@@ -1,0 +1,4 @@
+lushlyrics_env
+.env 
+.vscode
+*.sqlite3
